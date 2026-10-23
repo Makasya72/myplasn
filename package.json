@@ -1,0 +1,14 @@
+{
+  "name": "neon-tasks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Киберпанк-планировщик задач с входом по логину",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "start": "node dev-server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "type": "module"
+}

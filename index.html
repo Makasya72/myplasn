@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080817">
+  <meta name="description" content="NEON TASKS — твои планы под контролем. Киберпанк-планировщик задач.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <title>NEON TASKS — Твой космос задач</title>
+</head>
+<body>
+  <!-- Reusable inline icons -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite" aria-hidden="true">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v11h14V9M10 13h4"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7l0-7Z"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9m4 0h3M4 17h3m4 0h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m16 4 4 4M4 20l4.5-1 11-11a2.83 2.83 0 0 0-4-4l-11 11L4 20Z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 4h6m-9 3 1 13h10l1-13M10 11v5m4-5v5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5 19 19M19 5 5 19"/></symbol>
+    <symbol id="i-log-out" viewBox="0 0 24 24"><path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5M15 8l4 4-4 4m-9-4h13"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 22V4m0 1c3-2 5 2 8 0s5-1 6 0v11c-3-2-5 2-8 0s-4-1-6 0"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 2 2.3 7.7L22 12l-7.7 2.3L12 22l-2.3-7.7L2 12l7.7-2.3L12 2Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M4 5h16l2 11v3H2v-3L4 5Z"/><path d="M2 15h6l2 3h4l2-3h6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M5 15c1-5 4-9 12-12l4 4c-3 8-7 11-12 12l-4-4Z"/><path d="M5 15 2 20l6-2M14 9h.01M9 19l-1 3"/></symbol>
+  </svg>
+
+  <div id="loading" class="startup"><div class="startup-mark">N<span>✦</span></div><div class="loading-line"></div><span>ЗАГРУЖАЕМ ТВОЮ ВСЕЛЕННУЮ</span></div>
+
+  <!-- Public access screen -->
+  <section id="authScreen" class="auth-screen hidden" aria-labelledby="authTitle">
+    <div class="auth-art">
+      <div class="art-top"><div class="brand brand-large"><span class="logo-mark">N<span class="logo-star">✦</span></span><span class="brand-name">NEON<span>TASKS</span></span></div><span class="mini-label">PERSONAL SPACE // 01</span></div>
+      <div class="orbit-scene" aria-hidden="true"><div class="scene-grid"></div><div class="ring ring-one"></div><div class="ring ring-two"></div><div class="ring ring-three"></div><div class="core-glow"></div><div class="scene-center"><span>✦</span></div><div class="orbit-dot dot-cyan"></div><div class="orbit-dot dot-pink"></div><div class="floating-label label-one">FOCUS <span>ON</span></div><div class="floating-label label-two">// 100% YOU</div><div class="floating-label label-three">SYSTEM ONLINE <b>●</b></div></div>
+      <div class="auth-art-bottom"><span class="eyebrow">MAKE IT HAPPEN_</span><h1>Идеи в голове.<br><span>Порядок в делах.</span></h1><p>Твой личный командный центр для планов, больших целей и маленьких побед.</p><div class="art-footer"><span>NO CHAOS. JUST PROGRESS.</span><span>© NEON TASKS</span></div></div>
+    </div>
+    <div class="auth-form-side"><div class="auth-mobile-brand brand"><span class="logo-mark">N<span class="logo-star">✦</span></span><span class="brand-name">NEON<span>TASKS</span></span></div>
+      <div class="auth-card"><div class="auth-kicker"><span class="pulse-dot"></span> ТВОЁ ПРОСТРАНСТВО ЖДЁТ</div><h2 id="authTitle">С возвращением<span class="title-period">.</span></h2><p id="authSubtitle" class="auth-subtitle">Войди в аккаунт и продолжи двигаться к целям.</p>
+        <div class="auth-tabs" role="tablist" aria-label="Вход или регистрация"><button type="button" class="auth-tab active" data-auth="login" role="tab" aria-selected="true">Вход</button><button type="button" class="auth-tab" data-auth="register" role="tab" aria-selected="false">Регистрация</button></div>
+        <form id="authForm" novalidate><label class="field-label" for="loginInput">ТВОЙ ЛОГИН</label><div class="login-field"><span>@</span><input id="loginInput" name="login" placeholder="например, cyberfox" minlength="3" maxlength="24" autocomplete="username" required></div><div class="field-hint">От 3 до 24 символов, без пробелов.</div><div id="authError" class="form-error hidden" role="alert"></div><button type="submit" id="authSubmit" class="btn-primary auth-submit">Войти в пространство <svg><use href="#i-arrow-right"/></svg></button></form>
+        <div class="security-note"><svg><use href="#i-sparkles"/></svg><p><strong>Вход без пароля.</strong> Это удобно, но любой человек, знающий логин, сможет получить доступ к задачам этого аккаунта. Не храните здесь секретные данные.</p></div>
+      </div><div class="auth-copyright">DESIGNED FOR YOUR NEXT BIG THING <span>✦</span> 2026</div>
+    </div>
+  </section>
+
+  <!-- App -->
+  <div id="appScreen" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar" aria-label="Основная навигация">
+      <div class="sidebar-top"><div class="brand"><span class="logo-mark">N<span class="logo-star">✦</span></span><span class="brand-name">NEON<span>TASKS</span></span></div><button id="closeSidebar" class="icon-button sidebar-close" aria-label="Закрыть меню"><svg><use href="#i-close"/></svg></button></div>
+      <div class="workspace-pill"><span class="ws-icon">✦</span><div><span class="ws-sub">WORKSPACE</span><strong>Моё пространство</strong></div><span class="workspace-arrow">↗</span></div>
+      <nav class="main-nav"><div class="nav-heading">МОИ ЗАДАЧИ</div>
+        <button class="nav-item active" data-view="all"><svg><use href="#i-grid"/></svg><span>Все задачи</span><span class="nav-count" id="allCount">0</span></button>
+        <button class="nav-item" data-view="today"><svg><use href="#i-sun"/></svg><span>На сегодня</span><span class="nav-count" id="todayCount">0</span></button>
+        <button class="nav-item" data-view="upcoming"><svg><use href="#i-calendar"/></svg><span>Предстоящие</span></button>
+        <button class="nav-item" data-view="completed"><svg><use href="#i-check-circle"/></svg><span>Выполнено</span><span class="nav-count" id="doneCount">0</span></button>
+        <div class="nav-heading nav-heading-second">КАТЕГОРИИ</div><div id="categoryNav" class="category-nav"></div>
+      </nav>
+      <div class="sidebar-bottom"><div class="sidebar-motto"><span>✦</span><strong>Ты ближе к цели,<br>чем вчера.</strong><small>KEEP MOVING FORWARD ↗</small></div><div class="user-block"><div id="userAvatar" class="user-avatar">N</div><div class="user-info"><strong id="sidebarUsername">@username</strong><span>Личное пространство</span></div><button class="icon-button logout-btn" id="logoutBtn" title="Выйти" aria-label="Выйти из аккаунта"><svg><use href="#i-log-out"/></svg></button></div></div>
+    </aside>
+    <div class="mobile-scrim hidden" id="mobileScrim"></div>
+    <main class="main-container">
+      <header class="topbar"><div class="topbar-left"><button id="openSidebar" class="icon-button mobile-menu" aria-label="Открыть меню"><svg><use href="#i-menu"/></svg></button><span class="breadcrumb">WORKSPACE</span><span class="breadcrumb-sep">/</span><span class="breadcrumb-current" id="breadcrumbCurrent">Обзор задач</span></div><div class="topbar-right"><div class="live-status"><span></span> SYSTEM ONLINE</div><div class="topbar-divider"></div><div class="header-avatar" id="topbarAvatar">N</div></div></header>
+      <div class="dashboard-content">
+        <div class="welcome-line"><span class="eyebrow" id="dateEyebrow">СЕГОДНЯ // СУББОТА, 24 ОКТЯБРЯ</span><span class="daily-edition">YOUR DAILY MISSION <span>✦</span></span></div>
+        <div class="hero-heading"><div><h1>Время воплощать <span>идеи.</span><span class="cursor-accent">_</span></h1><p>Большие цели начинаются с маленьких выполненных задач.</p></div><div class="hero-symbol" aria-hidden="true">✳</div></div>
+        <div class="stats-grid"><div class="stat-card stat-purple"><div class="stat-label">АКТИВНЫХ ЗАДАЧ <svg><use href="#i-arrow-up-right"/></svg></div><div class="stat-bottom"><strong id="statActive">0</strong><div class="stat-icon"><svg><use href="#i-inbox"/></svg></div></div><div class="stat-extra">Твои текущие планы</div></div><div class="stat-card stat-green"><div class="stat-label">УЖЕ ВЫПОЛНЕНО <svg><use href="#i-arrow-up-right"/></svg></div><div class="stat-bottom"><strong id="statDone">0</strong><div class="stat-icon"><svg><use href="#i-check-circle"/></svg></div></div><div class="stat-extra">Каждая галочка — победа</div></div><div class="stat-card stat-blue"><div class="stat-label">ОБЩИЙ ПРОГРЕСС <svg><use href="#i-arrow-up-right"/></svg></div><div class="stat-bottom"><strong id="statProgress">0<span>%</span></strong><div class="stat-icon"><svg><use href="#i-target"/></svg></div></div><div class="stat-progress-track"><div id="statProgressBar" class="stat-progress-fill"></div></div></div></div>
+        <div class="lower-layout"><div class="primary-column">
+          <section class="quick-add-panel" aria-labelledby="quickAddTitle"><div class="panel-title"><div class="panel-title-left"><span class="title-icon"><svg><use href="#i-zap"/></svg></span><div><h2 id="quickAddTitle">Зафиксируй идею</h2><p>Пока она не улетела в космос</p></div></div><span class="quick-shortcut">ENTER ↵</span></div><form id="quickForm" class="quick-form"><label class="sr-only" for="quickTitle">Название новой задачи</label><div class="quick-input-wrap"><svg><use href="#i-plus"/></svg><input id="quickTitle" placeholder="Что хочешь сделать? Напиши свою задачу..." maxlength="200" required autocomplete="off"></div><div class="quick-footer"><div class="quick-meta"><label class="chip-control chip-category"><svg><use href="#i-grid"/></svg><select id="quickCategory" aria-label="Категория"><option>Личное</option><option>Работа</option><option>Учёба</option><option>Идеи</option><option>Покупки</option><option>Другое</option></select><svg class="chevron"><use href="#i-chevron-down"/></svg></label><label class="chip-control chip-date"><svg><use href="#i-calendar"/></svg><input type="date" id="quickDate" aria-label="Срок задачи"><span id="datePlaceholder" class="date-placeholder">Без срока</span></label><label class="chip-control chip-priority"><svg><use href="#i-flag"/></svg><select id="quickPriority" aria-label="Приоритет"><option value="medium">Обычный</option><option value="high">Важный</option><option value="low">Низкий</option></select><svg class="chevron"><use href="#i-chevron-down"/></svg></label></div><button id="quickSubmit" class="btn-primary btn-add" type="submit"><svg><use href="#i-plus"/></svg> Добавить задачу</button></div></form></section>
+          <section class="tasks-section" aria-labelledby="listHeading"><div class="tasks-heading"><div><div class="section-overline">YOUR MISSION BOARD</div><h2 id="listHeading">Все задачи <span id="listCount" class="list-badge">0</span></h2></div><div class="list-toolbar"><label class="search-control"><svg><use href="#i-search"/></svg><input id="searchInput" placeholder="Поиск..." aria-label="Поиск задач" maxlength="200"></label><label class="sort-control"><svg><use href="#i-sliders"/></svg><select id="sortSelect" aria-label="Сортировка"><option value="newest">Сначала новые</option><option value="oldest">Сначала старые</option><option value="priority">По приоритету</option><option value="due">По сроку</option></select></label></div></div><div id="filterTabs" class="filter-tabs"><button class="filter-tab active" data-status="all">Все</button><button class="filter-tab" data-status="active">В работе</button><button class="filter-tab" data-status="done">Готово</button></div><div id="taskList" class="task-list" aria-live="polite"></div></section>
+        </div><aside class="insights-column"><div class="insight-card focus-card"><div class="insight-header"><span>ТВОЙ ФОКУС</span><svg><use href="#i-target"/></svg></div><div class="focus-ring" id="focusRing"><div class="focus-number"><strong id="focusPercent">0%</strong><span>ЗАВЕРШЕНО</span></div></div><div class="focus-title" id="focusTitle">Каждый шаг имеет значение</div><p id="focusHint">Добавь первую задачу и начни превращать планы в результат.</p><div class="focus-divider"></div><div class="focus-stat"><span><span class="tiny-dot cyan"></span> Выполнено сегодня</span><strong id="completedToday">0</strong></div><div class="focus-stat"><span><span class="tiny-dot pink"></span> Запланировано на сегодня</span><strong id="plannedToday">0</strong></div></div><div class="insight-card quote-card"><div class="quote-stars">✳ ✳ ✳</div><p>«Лучший способ предсказать будущее — <em>создать его.</em>»</p><div class="quote-bottom"><span>DAILY REMINDER</span><svg><use href="#i-arrow-up-right"/></svg></div></div><div class="side-footnote">STAY FOCUSED. STAY BRILLIANT. <span>✦</span></div></aside></div>
+      </div>
+      <footer class="app-footer"><span>NEON TASKS / YOUR UNIVERSE OF PROGRESS</span><span>BUILD SOMETHING GREAT ✦</span></footer>
+    </main>
+  </div>
+
+  <div id="modalOverlay" class="modal-overlay hidden"><section class="edit-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-heading"><div><div class="section-overline">TASK EDITOR // 01</div><h2 id="modalTitle">Редактировать задачу</h2></div><button type="button" class="icon-button" id="closeModal" aria-label="Закрыть"><svg><use href="#i-close"/></svg></button></div><form id="editForm"><input type="hidden" id="editId"><label class="field-label" for="editTitle">НАЗВАНИЕ ЗАДАЧИ</label><input id="editTitle" class="form-input" maxlength="200" required><label class="field-label" for="editNotes">ОПИСАНИЕ / ЗАМЕТКИ</label><textarea id="editNotes" class="form-input" rows="5" maxlength="2000" placeholder="Добавь детали, чтобы ничего не забыть..."></textarea><div class="edit-grid"><div><label class="field-label" for="editCategory">КАТЕГОРИЯ</label><input id="editCategory" class="form-input" maxlength="32" list="categoryOptions" placeholder="Личное"><datalist id="categoryOptions"><option value="Личное"><option value="Работа"><option value="Учёба"><option value="Идеи"><option value="Покупки"><option value="Другое"></datalist></div><div><label class="field-label" for="editPriority">ПРИОРИТЕТ</label><select id="editPriority" class="form-input"><option value="low">Низкий</option><option value="medium">Обычный</option><option value="high">Важный</option></select></div></div><label class="field-label" for="editDate">СРОК (НЕОБЯЗАТЕЛЬНО)</label><input type="date" id="editDate" class="form-input"><div class="modal-actions"><button id="deleteTaskBtn" type="button" class="btn-danger"><svg><use href="#i-trash"/></svg> Удалить</button><div class="modal-actions-right"><button id="cancelEdit" type="button" class="btn-secondary">Отмена</button><button type="submit" id="saveEdit" class="btn-primary">Сохранить <svg><use href="#i-check"/></svg></button></div></div></form></section></div>
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
